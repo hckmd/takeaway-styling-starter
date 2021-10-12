@@ -2,32 +2,37 @@
 <html>
     <head>
          <!-- TODO: Add required meta tags -->
-        <title>{{ title }} - The Takeaway Shop</title>
+         <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }} - End Timer Guesser</title>
         <!-- TODO: Add stylesheet for bootstrap css -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
     </head>
     <body>
         <!-- TODO: Replace this section of the page with a navigation bar -->
-        <p>The Takeaway Shop</p>
-        <!-- 
-            The active page is set in each template, and indicated 
-            with red font in the base template using inline styling. 
-            This should be done with active class once Bootstrap has been added.
-         -->
-        <a href="{{ url_for('index') }}"
-            {% if active_menu_item == 'Home' %} style='color: red' {% endif %}>
-            Home
-        </a>
-        <a href="{{ url_for('menu') }}"
-            {% if active_menu_item == 'Menu' %} style='color: red' {% endif %}>
-            Menu
-        </a>
-        <a href="{{ url_for('orders') }}"
-            {% if active_menu_item == 'Orders' %} style='color: red' {% endif %}>
-            Orders</a>
-        <div class="container">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark pt-6">
+            <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='end_time.png') }}" height="50px" width="50px"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link {% if active_menu_item == 'Home' %} active {% endif %}" 
+                        href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_menu_item == 'Vote' %} active {% endif %}" 
+                        href="{{ url_for('vote') }}">Vote</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        <div class="container pt-5">
         {% block content %}
         {% endblock %}
         </div>
         <!-- TODO: Add bootstrap js file here. -->
+        <script src="{{ url_for('static', filename='bootstrap.js') }}"></script>
     </body>
 </html>

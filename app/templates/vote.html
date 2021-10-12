@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% set active_menu_item = 'Vote' %}
+
+{% block content %}
+<!-- TODO: Styling should be updated on table once Bootstrap is added. -->
+<h2>Add Vote: {{ vote.user.name }}</h2>
+<ul class="errors">
+{% for field, errors in form.errors.items() %}
+    <li>
+        {{ form[field].label }}: {{ ', '.join(errors) }}
+    </li>
+{% endfor %}
+</ul>
+<form method="POST">
+    
+    {{ form.csrf_token }}
+
+    {{ form.user_id.label(class='form-label') }}
+    {{ form.user_id(class='form-control') }}
+
+    {{ form.seminar_id.label(class='form-label') }}
+    {{ form.seminar_id(class='form-control') }}
+
+    {{ form.minutes_over.label(class='form-label') }}
+    {{ form.minutes_over(class='form-control') }}
+
+    {{ form.submit(class='btn btn-primary my-2') }}
+
+</form>
+{% endblock %}
