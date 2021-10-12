@@ -1,2 +1,2 @@
-FLASK_APP=takeaway.py
+FLASK_APP=end_time.py
 FLASK_ENV=development

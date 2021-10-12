@@ -11,6 +11,7 @@ class Seminar(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     week = db.Column(db.Integer)
     seminar_date = db.Column(db.DateTime)
+    finish = db.Column(db.Integer)
     votes = db.relationship('Vote', backref='seminar')
 
 class Vote(db.Model):

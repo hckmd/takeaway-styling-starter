@@ -8,12 +8,11 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///endtime.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
+app.config['SECRET-KEY'] = 'this-is-a-endtime-secret' 
 db = SQLAlchemy(app)
 
-# Used for demonstration purposes - DO NOT USE IN PRODUCTION
-app.config['SECRET-KEY'] = 'this-is-a-secret' 
 
-from app import routes, models
+from app import routes, models, forms
 
 @app.cli.command('init-db')
 def init_db():

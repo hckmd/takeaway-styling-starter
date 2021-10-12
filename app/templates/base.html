@@ -4,14 +4,14 @@
          <!-- TODO: Add required meta tags -->
          <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title }} - The Takeaway Shop</title>
+        <title>{{ title }} - End Timer Guesser</title>
         <!-- TODO: Add stylesheet for bootstrap css -->
         <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
     </head>
     <body>
         <!-- TODO: Replace this section of the page with a navigation bar -->
-         <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2">
-            <a class="navbar-brand" href="#">EDPF5023 - End Time??</a>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark pt-6">
+            <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='end_time.png') }}" height="50px" width="50px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,7 +23,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if active_menu_item == 'Vote' %} active {% endif %}" 
-                        href="{{ url_for('menu') }}">Vote</a>
+                        href="{{ url_for('vote') }}">Vote</a>
                 </li>
               </ul>
             </div>

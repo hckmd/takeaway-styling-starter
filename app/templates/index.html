@@ -2,19 +2,24 @@
 {% set active_menu_item = 'Home' %}
 
 {% block content %}
-<h1>Home</h1>
+<div class="container p-5 my-5 bg-dark text-white">
+<h1 class="text-success">End Time Guesser</h1>
 <p>
     Welcome to the EDPF5023 seminar end time competition. 
-    The goal is to guess the end time of each Thursday seminar, to the closest minute.
+    The goal of this App is to guess the end time of each Thursday seminar, to the closest minute.
 </p>
-<p>For example if your guess is 7:45PM, then enter -15 (15 minutes before 8PM).</p>
-<p>Another example: if your guess is 8:07PM, then enter 8 (8 minutes after 8PM).</p>
-<p>Good luck!!!</p>
+<ul>
+<li>For example if your guess is 7:45PM, then enter -15 (15 minutes before 8PM).</p>
+<li>Or, if your guess is 8:07PM, then enter 8 (8 minutes after 8PM).</p>
+</li>
+</ul>
+<a href="{{ url_for('vote') }}" class="btn btn-primary">Place Your Vote!</a>
+</div>
 <h2>Leaderboard</h2>
-<table class="table">
+<table class="table table-dark table-hover">
     <tr class="table-header">
-        <th class="table-cell">Name</th>
-        <th class="table-cell">Score</th>
+        <th class="table-cell bg-success">Name</th>
+        <th class="table-cell bg-success">Score</th>
     </tr>
     <!-- Populate table from all non-eliminated contestants in Contestants table. 
         Use visual cue to highlight eliminated contestants -->
