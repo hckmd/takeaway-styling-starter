@@ -1,10 +1,11 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from datetime import date
 
 app = Flask(__name__)
 
 # Set up configuration settings for connection to database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///takeaway.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///endtime.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
@@ -22,26 +23,64 @@ def init_db():
 
     # Add some sample data for different takeaway items
 
-    hot_chips = models.Item (
-        name = 'Hot chips',
-        price_cents = 400,
-        delivery_available = True
+    troy = models.User (
+        name = 'Troy'
     )
-    db.session.add(hot_chips)
+    db.session.add(troy)
 
-    burger = models.Item (
-        name = 'Burger',
-        price_cents = 800,
-        delivery_available = True
+    kylie = models.User (
+        name = 'Kylie'
     )
-    db.session.add(burger)
+    db.session.add(kylie)
 
-    fish = models.Item (
-        name = 'Fish of the day',
-        price_cents = 1000,
-        delivery_available = False
+    michelle = models.User (
+        name = 'Michelle'
     )
-    db.session.add(fish)
+    db.session.add(michelle)
+
+    kelly = models.User (
+        name = 'Kelly'
+    )
+    db.session.add(kelly)
+
+    kirsty = models.User (
+        name = 'Kirsty'
+    )
+    db.session.add(kirsty)
+
+    mark = models.User (
+        name = 'Mark'
+    )
+    db.session.add(mark)
+
+    sally = models.User (
+        name = 'Sally'
+    )
+    db.session.add(sally)
+
+    week9 = models.Seminar (
+        week = 9,
+        seminar_date = date(2021,10,14)
+    )
+    db.session.add(week9)
+
+    week10 = models.Seminar (
+        week = 10,
+        seminar_date = date(2021,10,21)
+    )
+    db.session.add(week10)
+
+    week11 = models.Seminar (
+        week = 11,
+        seminar_date = date(2021,10,28)
+    )
+    db.session.add(week11)
+
+    week12 = models.Seminar (
+        week = 12,
+        seminar_date = date(2021,11,4)
+    )
+    db.session.add(week12)
 
     # Save the changes to the database
     db.session.commit()

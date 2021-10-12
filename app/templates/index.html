@@ -4,7 +4,25 @@
 {% block content %}
 <h1>Home</h1>
 <p>
-    Welcome to the Takeaway Shop website. 
-    Have a look at the menu and, when you're ready, make an order.
+    Welcome to the EDPF5023 seminar end time competition. 
+    The goal is to guess the end time of each Thursday seminar, to the closest minute.
 </p>
+<p>For example if your guess is 7:45PM, then enter -15 (15 minutes before 8PM).</p>
+<p>Another example: if your guess is 8:07PM, then enter 8 (8 minutes after 8PM).</p>
+<p>Good luck!!!</p>
+<h2>Leaderboard</h2>
+<table class="table">
+    <tr class="table-header">
+        <th class="table-cell">Name</th>
+        <th class="table-cell">Score</th>
+    </tr>
+    <!-- Populate table from all non-eliminated contestants in Contestants table. 
+        Use visual cue to highlight eliminated contestants -->
+    {% for user in users %}
+        <tr class="table-row">
+            <td class="table-cell">{{ user.name }}</td>
+            <td class="table-cell">{{ user.score}}</td>
+        </tr>
+    {% endfor %}
+</table>
 {% endblock %}

@@ -1,18 +1,15 @@
 from flask import render_template
 
 from app import app
-from app.models import Item
+from app.models import User, Vote, Seminar
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title = 'Home')
+    users = User.query.all()
+    return render_template('index.html', title = 'Home', users=users)
 
-@app.route('/menu')
-def menu():
-    items = Item.query.all()
-    return render_template('menu.html', title = 'Menu', items = items)
+@app.route('/vote')
+def vote():
+    return render_template('vote.html', title = 'Vote')
 
-@app.route('/orders')
-def orders():
-    return render_template('orders.html', title = 'Orders')
