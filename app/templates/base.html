@@ -25,6 +25,10 @@
                     <a class="nav-link {% if active_menu_item == 'Vote' %} active {% endif %}" 
                         href="{{ url_for('vote') }}">Vote</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link {% if active_menu_item == 'Admin' %} active {% endif %}" 
+                      href="{{ url_for('admin') }}">Admin</a>
+              </li>
               </ul>
             </div>
           </nav>

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% set active_menu_item = 'Vote' %}
+{% set active_menu_item = 'Edit Seminar' %}
 
 {% block content %}
 <!-- TODO: Styling should be updated on table once Bootstrap is added. -->
-<h2>Cast Your Vote</h2>
+<h2>Add a Seminar End Time for Seminar: {{ seminar_week }}</h2>
 <ul class="errors">
 {% for field, errors in form.errors.items() %}
     <li>
@@ -15,14 +15,8 @@
     
     {{ form.csrf_token }}
 
-    {{ form.user_id.label(class='form-label') }}
-    {{ form.user_id(class='form-control') }}
-
-    {{ form.seminar_id.label(class='form-label') }}
-    {{ form.seminar_id(class='form-control') }}
-
-    {{ form.minutes_over.label(class='form-label') }}
-    {{ form.minutes_over(class='form-control') }}
+    {{ form.finish.label(class='form-label') }}
+    {{ form.finish(class='form-control') }}
 
     {{ form.submit(class='btn btn-primary my-2') }}
 

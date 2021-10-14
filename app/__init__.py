@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///endtime.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-app.config['SECRET-KEY'] = 'this-is-a-endtime-secret' 
+app.config['SECRET_KEY'] = 'this-is-a-endtime-secret' 
 db = SQLAlchemy(app)
 
 
@@ -59,7 +59,8 @@ def init_db():
 
     week9 = models.Seminar (
         week = 9,
-        seminar_date = date(2021,10,14)
+        seminar_date = date(2021,10,14),
+        finish = 10
     )
     db.session.add(week9)
 

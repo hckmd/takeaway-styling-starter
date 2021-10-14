@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% set active_menu_item = 'Admin' %}
+
+{% block content %}
+<div class="container p-5 my-5 bg-dark text-white">
+<h1 class="text-success">End Time Guesser - Admin</h1>
+<p>
+    Welcome to the EDPF5023 seminar end time Admin Page. 
+    Choose the seminar you wish to record an end time for. The value should be the number of minutes from 8PM, to the closest minute.
+</p>
+<ul>
+<li>For example if your guess is 7:45PM, then enter -15 (15 minutes before 8PM).</p>
+</li>
+</ul>
+</div>
+<h2>Seminars</h2>
+<table class="table table-dark table-hover">
+    <tr class="table-header">
+        <th class="table-cell bg-success">Week</th>
+        <th class="table-cell bg-success">Date</th>
+        <th class="table-cell bg-success"></th>
+    </tr>
+    <!-- Populate table with all seminars -->
+    {% for row in seminars %}
+        <tr class="table-row">
+            <td class="table-cell">{{ row.week }}</td>
+            <td class="table-cell">{{ row.seminar_date}}</td>
+            <td><a href="{{ url_for('edit_seminar', id=row.id) }}" class="btn btn-primary">Add End Time</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

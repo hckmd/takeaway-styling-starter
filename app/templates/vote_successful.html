@@ -1,15 +1,15 @@
-% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-    <h1>Thank you {{ vote.user.firstname }}, your vote has been recorded</h1>
+    <h1>Thank you {{ vote.user.name }}, your vote has been recorded</h1>
     <table class="table table-dark table-hover">
         <tr class="table-header">
-            <th class="table-cell">Seminar Week</th>
+            <th class="table-cell">Seminar</th>
             <th class="table-cell">User</th>
             <th class="table-cell">Minutes Over</th>
         </tr>
             <tr class="table-row">
-                <td class="table-cell bg-success">{{ vote.seminar.week }} {{ vote.tribal.tribal_date.strftime("%a %d %b %Y") }}</td>
+                <td class="table-cell bg-success">Week {{ vote.seminar.week }} on {{ vote.seminar.seminar_date.strftime("%a %d %b %Y") }}</td>
                 <td class="table-cell bg-success">{{ vote.user.name}}</td>
                 <td class="table-cell bg-success">{{ vote.minutes_over}}</td>
             </tr>
